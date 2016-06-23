@@ -1,0 +1,47 @@
+.form
+  max-width: 350px
+  margin: 0 auto 1em
+
+label
+  margin: 1em 0 .3em
+  display: block
+
+  color: $grey
+  font-size: .9em
+
+  &.hasError
+    color: $red !important
+
+.form__input
+  width: 68%
+  padding: .3em 0 .3em .3em
+  display: inline-block
+  margin: 0
+
+  font-size: .9em
+  color: $grey
+
+  border-top: 1px solid $grey
+  border-left: 1px solid $grey
+  border-bottom: 1px solid $grey
+  border-right: none
+
+  &.form__input--full
+    display: block
+    width: 100%
+
+    border-right: 1px solid $grey
+
+  &.hasError
+    border-color: $red
+
+.form__submit
+  width: 30%
+
+  color: $white
+
+  border: none
+
+select
+  width: 65%
+  border: 1px solid $grey

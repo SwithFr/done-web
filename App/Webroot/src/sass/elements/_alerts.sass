@@ -1,0 +1,24 @@
+.alert
+  z-index: 2000
+  display: block
+  position: fixed
+  top: 0
+  right: 0
+  max-width: 300px
+  padding: 1em
+
+  color: $white
+
+  transition: right $duration
+  border-radius: $border-radius
+
+  &.alert-error
+    text-decoration: none
+
+    background-color: $red
+
+  &.alert-success
+    text-decoration: none
+
+    background-color: $green
+

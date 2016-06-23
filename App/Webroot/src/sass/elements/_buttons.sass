@@ -1,0 +1,54 @@
+.button
+  padding: 1em 2em
+  margin: 0 auto
+  display: block
+  max-width: 300px
+
+  color: $white
+  font-weight: 300
+  font-size: 1em
+  text-decoration: none
+  text-align: center
+  
+  border: none
+  border-radius: $border-radius
+  background-color: $main-blue-color
+
+  &.button--smaller
+    padding: .5em 1em
+
+    font-size: .9em
+
+  &:hover
+    background-color: $main-blue-color-lighter
+    cursor: pointer
+
+.add-button
+  margin-right: 3em
+
+  text-decoration: none
+  color: $grey
+  font-size: 1em
+
+  &:before
+    content: '+'
+    display: inline-block
+    padding: .3em
+    margin-right: .3em
+
+    color: $white
+    font-size: 1em
+    font-weight: 300
+    line-height: .9
+
+    border-radius: $border-radius
+    background-color: $main-blue-color
+
+  &.disabled:before
+    background-color: $grey !important
+
+  &:hover
+    text-decoration: underline
+
+    &:before
+      background-color: $main-blue-color-lighter
