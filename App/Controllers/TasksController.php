@@ -35,7 +35,6 @@ class TasksController extends AppController
             $task = new Task();
             if ($task->validate($this->Request->data)) {
                 $task->data = $this->Request->data;
-                var_dump($task->data);die();
                 $task->setHeaders()->store();
                 $this->Session->setFlash("La tâche a bien été ajoutée", "success");
                 $this->Session->write("discoverCompleted", true);
