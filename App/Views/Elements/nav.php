@@ -16,7 +16,7 @@
     </a>
     <ul id="open-menu">
         <li><a href="#menu-closed" title="Fermer le menu" class="close-menu">X</a></li>
-        <li><a href="#">Connexion</a></li>
+        <li><a href="<?= Html::url('connexion') ?>">Connexion</a></li>
         <li><a href="#">Inscription</a></li>
         <li><a href="#">API</a></li>
     </ul>
