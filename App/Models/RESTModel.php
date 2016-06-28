@@ -80,10 +80,12 @@ class RESTModel
 
     public function setHeaders()
     {
-        $this->headers = [
-            'userid' => $_SESSION["userid"],
-            'usertoken' => $_SESSION["usertoken"]
-        ];
+        if (isset($_SESSION['usertoken']) && isset($_SESSION['userid'])) {
+            $this->headers = [
+                'userid' => $_SESSION["userid"],
+                'usertoken' => $_SESSION["usertoken"]
+            ];
+        }
 
         return $this;
     }
