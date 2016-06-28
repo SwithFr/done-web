@@ -11,5 +11,5 @@
 ]) ;?>
 
 <?= Form::end("Je m‘inscris", [
-    'class' => 'button'
+    'class' => 'button form__submit--full'
 ]) ?>
