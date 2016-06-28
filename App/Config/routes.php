@@ -9,12 +9,12 @@ use Core\Router;
  * en utilisant le router. Il vous suffit de suivre l'exemple ci-dessous
  */
 
-Router::join('accueil', [
+Router::get('accueil', [
     "controller" => 'pages',
     "action" => 'index'
 ]);
 
-Router::join('decouvrir/{step}', [
+Router::get('decouvrir/{step}', [
     "controller" => 'tasks',
     "action" => 'discover',
     "params" => [
@@ -22,12 +22,27 @@ Router::join('decouvrir/{step}', [
     ]
 ]);
 
-Router::join('decouvrir/projects', [
+Router::post('decouvrir/projets', [
     "controller" => 'projects',
     "action" => 'createFromDiscover'
 ]);
 
-Router::join('decouvrir/tasks', [
+Router::post('decouvrir/tasks', [
     "controller" => 'tasks',
     "action" => 'createFromDiscover'
+]);
+
+Router::get('connexion', [
+    "controller" => 'users',
+    "action" => 'connect'
+]);
+
+Router::get('inscription', [
+    "controller" => 'users',
+    "action" => 'register'
+]);
+
+Router::get('au-revoir', [
+    "controller" => 'users',
+    "action" => 'logout'
 ]);
