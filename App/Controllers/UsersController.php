@@ -15,7 +15,11 @@ class UsersController extends AppController
 
     public function logout()
     {
-        
+        unset($_SESSION['usertoken']);
+        unset($_SESSION['userid']);
+
+        $this->Session->setFlash("Vous êtes déconnecté, à bientot !");
+        $this->redirect("accueil");
     }
 
     public function register()
@@ -26,7 +30,7 @@ class UsersController extends AppController
             $data = $this->Request->data;
             if ($user->validate($data)) {
                 $user->data = $data;
-                $user->store->connect();
+                $user->store()->connect();
                 $this->Session->write("usertoken", $user->recived_data->data->user_token);
                 $this->Session->write("userid", $user->recived_data->data->user_id);
                 $this->Session->setFlash("Votre compte a bien été crée ! Vous êtes maintenant connecté.");
