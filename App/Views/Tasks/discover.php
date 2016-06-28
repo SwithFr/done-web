@@ -2,7 +2,7 @@
 <?//= $this->element("search_task_form") ?>
 <?php if(!isset($_SESSION['discoverCompleted'])): ?>
     <?= $this->element("add_buttons") ?>
-    <?php if(!isset($_SESSION['hasProject'])): ?>
+    <?php if($step == 0): ?>
         <section class="section">
             <h2 class="section__title">Créer une tâche</h2>
             <p class="section__content">
@@ -33,15 +33,17 @@
         <p class="section__content">
             Ensuite, il vous suffit de choisir un titre pour votre tâche et de l'associer à un projet.
         </p>
-        <?= $this->element("add_task_form", isset($projects) ? $projects : null) ?>
+        <?= $this->element("add_task_form") ?>
     </section>
 <?php else: ?>
+    <?php unset($_SESSION['discoverCompleted']); ?>
     <section class="section">
         <h2 class="section__title"><b>Bravo</b>, votre tâche est créée !</h2>
         <p class="section__content">
             Vous avez complété avec succès les étapes pour découvrir le fonctionnement de Done. C'est facile n'est-ce pas ? Évidemment, Done ne se limite pas à cette simple fonctionnalité ! vous pouvez ajoutez des tags, des priorités ainsi que des notes sur vos tâches et vos projets. Tout est très simple d'utilisation. Créez un compte pour en profiter.
         </p>
         <a href="<?= \Core\Helpers\Html::url('inscription') ?>" class="button">Inscrivez-vous !</a>
+        <a href="<?= \Core\Helpers\Html::url('non-merci') ?>">Non merci !</a>
     </section>
 <?php endif; ?>
 
