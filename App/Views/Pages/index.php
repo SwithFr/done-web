@@ -14,6 +14,9 @@ $title_for_layout = "Done - Bienvenue sur la page d'accueil de Done, le gestionn
         Accomplissez vos tâches et débloquez des succès amusants !
     </p>
     <a href="<?= Html::url("decouvrir/0") ?>" class="button">Je créé ma première tâche !</a>
+    <div class="linksToConnect">
+        <a href="<?= Html::url("inscription") ?>">Je m'inscris</a> / <a href="<?= Html::url('connexion') ?>">Je me connecte</a>
+    </div>
 </section>
 <section>
     <h2 class="section__title section__content--smaller"><b>Optimisez</b> votre temps</h2>
