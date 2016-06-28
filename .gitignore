@@ -1,3 +1,5 @@
 .idea
 /App/Webroot/node_modules/
 /vendor/
+/App/Webroot/css/
+/App/Webroot/js/
