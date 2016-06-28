@@ -1,5 +1,5 @@
 <?php use Core\Helpers\Form; ?>
-<?= Form::start("go-inscription", 'POST', ['class' => 'form']) ?>
+<?= Form::start("inscription", 'POST', ['class' => 'form']) ?>
 
 <?= Form::input('text', 'login', 'Identifiant', [
     'class' => 'form__input form__input--full',
