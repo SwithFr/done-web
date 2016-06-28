@@ -18,10 +18,14 @@ class UsersController extends AppController
             if ($user->validate($data)) {
                 $user->data = $data;
                 $user->connect();
-                $this->Session->write("usertoken", $user->recived_data->data->user_token);
-                $this->Session->write("userid", $user->recived_data->data->user_id);
-                $this->Session->setFlash("Vous êtes maintenant connecté.");
-                $this->redirect("tableau-de-bord");
+                if (!$user->reqError) {
+                    $this->Session->write("usertoken", $user->recived_data->data->user_token);
+                    $this->Session->write("userid", $user->recived_data->data->user_id);
+                    $this->Session->setFlash("Vous êtes maintenant connecté.");
+                    $this->redirect("tableau-de-bord");
+                } else {
+                    $this->Session->setFlash($user->reqError->message, "error");
+                }
             } else {
                 $d['errors'] = $user->getErrors();
                 $this->Session->setFlash("Désolé mais vos informations ne sont pas valides", 'error');
