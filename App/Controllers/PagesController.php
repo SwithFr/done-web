@@ -12,4 +12,9 @@ class PagesController extends AppController
 
     public function bye(){}
 
+    public function user_dashboard()
+    {
+        var_dump("cool");die();
+    }
+
 }
