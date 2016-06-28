@@ -38,26 +38,21 @@ Router::post('decouvrir/tasks', [
     "action" => 'createFromDiscover'
 ]);
 
+Router::get('tableau-de-bord', [
+    "controller" => 'pages',
+    "action" => 'dashboard',
+    "prefixe" => 'user'
+]);
 
 # USERS
-Router::get('connexion', [
+Router::any('connexion', [
     "controller" => 'users',
     "action" => 'connect'
 ]);
 
-Router::post('go-connexion', [
-    "controller" => 'users',
-    "action" => 'goConnect'
-]);
-
-Router::get('inscription', [
+Router::any('inscription', [
     "controller" => 'users',
     "action" => 'register'
-]);
-
-Router::post('go-inscription', [
-    "controller" => 'users',
-    "action" => 'goRegister'
 ]);
 
 Router::get('au-revoir', [
