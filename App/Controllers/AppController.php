@@ -8,4 +8,9 @@ class AppController extends Controller
 {
     public $components = ["Session"];
 
+    public function beforeRender()
+    {
+        
+    }
+
 }
