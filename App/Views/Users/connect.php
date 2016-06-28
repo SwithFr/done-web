@@ -4,14 +4,22 @@
     <p class="section__content">
         Conectez-vous et retrouvez toutes vos tâches en attentes.
     </p>
-    <?= Form::start("connexop,", 'POST', ['class' => 'form']) ?>
 
-    <?= Form::input('text', 'login', 'Identifiant', [
-        'class' => 'form__input form__input--full',
+    <?php
+        $loginHasError = isset($errors) && isset($errors['login']) ? ' hasError' : '';
+        $passwordHasError = isset($errors) && isset($errors['password']) ? ' hasError' : '';
+    ?>
+    <?= Form::start("connexion,", 'POST', ['class' => 'form']) ?>
+
+    <label for="login" class="<?= $loginHasError ?>">Identifiant <?= isset($errors['login']) ? '(' . $errors['login'] . ')' : '' ?></label>
+    <?= Form::input('text', 'login', false, [
+        'class' => 'form__input form__input--full' . $loginHasError,
         'placeholder' => 'Tony'
-    ]) ;?>
-    <?= Form::input('password', 'password', 'Mot de passe', [
-        'class' => 'form__input form__input--full',
+    ], isset($user->login) ? $user->login : '') ;?>
+
+    <label for="login" class="<?= $passwordHasError ?>">Mot de passe <?= isset($errors['password']) ? '(' . $errors['password'] . ')' : '' ?></label>
+    <?= Form::input('password', 'password', false, [
+        'class' => 'form__input form__input--full' . $loginHasError,
         'placeholder' => '*****'
     ]) ;?>
 
