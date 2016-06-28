@@ -4,14 +4,21 @@
     <p class="section__content">
         Creez votre compte en moins de 30 secondes et commencez tout de suite à planifier vos tâches les plus importantes.
     </p>
+    <?php
+        $loginHasError = isset($errors) && isset($errors['login']) ? ' hasError' : '';
+        $passwordHasError = isset($errors) && isset($errors['password']) ? ' hasError' : '';
+    ?>
     <?= Form::start("inscription", 'POST', ['class' => 'form']) ?>
 
-    <?= Form::input('text', 'login', 'Identifiant', [
-        'class' => 'form__input form__input--full',
+    <label for="login" class="<?= $loginHasError ?>">Identifiant <?= isset($errors['login']) ? '(' . $errors['login'] . ')' : '' ?></label>
+    <?= Form::input('text', 'login', false, [
+        'class' => 'form__input form__input--full' . $loginHasError,
         'placeholder' => 'Tony'
-    ]) ;?>
-    <?= Form::input('password', 'password', 'Mot de passe', [
-        'class' => 'form__input form__input--full',
+    ], isset($user->login) ? $user->login : '') ;?>
+
+    <label for="login" class="<?= $passwordHasError ?>">Mot de passe <?= isset($errors['password']) ? '(' . $errors['password'] . ')' : '' ?></label>
+    <?= Form::input('password', 'password', false, [
+        'class' => 'form__input form__input--full' . $loginHasError,
         'placeholder' => '*****'
     ]) ;?>
 
