@@ -9,7 +9,7 @@
         $loginHasError = isset($errors) && isset($errors['login']) ? ' hasError' : '';
         $passwordHasError = isset($errors) && isset($errors['password']) ? ' hasError' : '';
     ?>
-    <?= Form::start("connexion,", 'POST', ['class' => 'form']) ?>
+    <?= Form::start("connexion", 'POST', ['class' => 'form']) ?>
 
     <label for="login" class="<?= $loginHasError ?>">Identifiant <?= isset($errors['login']) ? '(' . $errors['login'] . ')' : '' ?></label>
     <?= Form::input('text', 'login', false, [
