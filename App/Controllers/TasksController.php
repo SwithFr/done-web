@@ -15,6 +15,7 @@ class TasksController extends AppController
 
     public function discover($step)
     {
+        $d['step'] = $step;
         if ($step == 0) {
             $this->Session->delete("hasProject");
             $this->Session->delete("task-errors");
@@ -22,9 +23,11 @@ class TasksController extends AppController
             $this->_createAndLogFakeUser();
         } elseif ($step == 1) {
         } elseif ($step == 2) {
-            return $this->set("projects", (new Project())->getAll()->recived_data);
+            $d['projects'] = (new Project())->getAll()->recived_data;
             // Proposer inscription
         }
+        
+        return $this->set($d);
     }
 
     public function createFromDiscover()
@@ -38,13 +41,13 @@ class TasksController extends AppController
                 $task->setHeaders()->store();
                 $this->Session->setFlash("La tâche a bien été ajoutée", "success");
                 $this->Session->write("discoverCompleted", true);
-                $this->redirect("decouvrir/2#add-task-section");
+                $this->redirect("decouvrir/2");
             } else {
                 $this->Session->write("task-errors", $task->getErrors());
                 $this->Session->setFlash("Le titre de la tâche n'est pas valide !", 'error');
             }
         }
-        $this->redirect("decouvrir/1#add-task-section");
+        $this->redirect("decouvrir/1");
     }
 
     private function _createAndLogFakeUser()
