@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Core\Models\Behaviors\Validator;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 class RESTModel
 {
@@ -16,6 +17,7 @@ class RESTModel
 
     public $recived_data = null;
     public $data = [];
+    public $reqError = false;
     
     public $prefix = "";
     public $route = "";
@@ -31,7 +33,8 @@ class RESTModel
         $className = end($className);
         $this->prefix = strtolower($className) . "s";
         $this->Client = new Client([
-            'base_uri' => 'http://localhost:23456/' . $this->prefix . '/'
+            'base_uri' => 'http://localhost:23456/' . $this->prefix . '/',
+            'http_errors' => false
         ]);
 
         if ($data) {
@@ -66,15 +69,22 @@ class RESTModel
     private function _performRequest()
     {
         $this->setHeaders();
+
         $this->Response = $this->Client->request($this->method, $this->route, [
             'headers' => $this->headers,
             'form_params' => $this->data
         ]);
 
-        if ($this->Response->getStatusCode() === 200) {
-            $this->recived_data = json_decode($this->Response->getBody()->getContents());
+        $status = $this->Response->getStatusCode();
+        if ($status === 200) {
+            $this->recived_data = $this->_decode();
+        } elseif ($status === 404) {
+            $this->_parseError($this->_decode()->error);
         } else {
-            var_dump("ERROR");
+            $this->reqError = (object) [
+                'type' => "INERTAL ERROR",
+                'message' => "Le serveur a rencontré une erreur, veuillez nous exucser pour ce problème."
+            ];
         }
     }
 
@@ -95,5 +105,19 @@ class RESTModel
         return (object) $data;
     }
 
+    private function _parseError($error)
+    {
+        $this->reqError = new \stdClass();
+        $this->reqError->type = $error->type;
 
+        switch ($error->type) {
+            case "UNKNOWN_USER":
+                $this->reqError->message = "Utilisateur introuvable";
+        }
+    }
+
+    private function _decode()
+    {
+        return json_decode($this->Response->getBody()->getContents());
+    }
 }
