@@ -1,5 +1,4 @@
 <?php $title_for_layout = "Découvrez Done, le gestionnaire de tâche, en créant votre première tâche."; ?>
-<?//= $this->element("search_task_form") ?>
 <?php if(!isset($_SESSION['discoverCompleted'])): ?>
     <?= $this->element("add_buttons") ?>
     <?php if($step == 0): ?>
