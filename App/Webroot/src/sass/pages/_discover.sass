@@ -1,9 +1,9 @@
-#add-project-section, #add-task-section
+.section__hidden
   position: absolute
   left: -400%
 
   transition: left $duration
 
-  &:target
+  &.section__visible
     position: relative
     left: 0
