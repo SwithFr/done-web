@@ -6,7 +6,6 @@ namespace App\Models;
 
 use Core\Models\Behaviors\Validator;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 
 class RESTModel
 {
@@ -42,32 +41,33 @@ class RESTModel
         }
     }
 
-    public function getAll()
+    public function getAll($params = [])
     {
         $this->method = "GET";
 
-        $this->_performRequest();
+        $this->_performRequest($params);
 
         return $this;
     }
 
-    public function store()
+    public function store($params = [])
     {
         $this->method = "POST";
-        $this->_performRequest();
+        $this->_performRequest($params);
 
         return $this;
     }
 
-    public function execute()
+    public function execute($params = [])
     {
-        $this->_performRequest();
+        $this->_performRequest($params);
 
         return $this;
     }
 
-    private function _performRequest()
+    private function _performRequest($params = [])
     {
+        $this->_parseParams($params);
         $this->setHeaders();
 
         $this->Response = $this->Client->request($this->method, $this->route, [
@@ -113,6 +113,13 @@ class RESTModel
         switch ($error->type) {
             case "UNKNOWN_USER":
                 $this->reqError->message = "Utilisateur introuvable";
+        }
+    }
+
+    private function _parseParams(array $params)
+    {
+        if (isset($params['route'])) {
+            $this->route = $params['route'];
         }
     }
 
