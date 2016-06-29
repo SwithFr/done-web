@@ -1,7 +1,15 @@
 svg
   fill: $main-blue-color
 
+  &.nav, &.edit, &.suppr
+    stroke: $main-blue-color
+    fill: none
+
+  &.suppr
+    stroke: $red
+
   &.nav
     stroke-width: 1px
-    fill: none
-    stroke: $main-blue-color
+
+  &.edit, &.suppr
+    stroke-width: 2px
