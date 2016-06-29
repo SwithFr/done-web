@@ -24,7 +24,6 @@ class TasksController extends AppController
         } elseif ($step == 1) {
         } elseif ($step == 2) {
             $d['projects'] = (new Project())->getAll()->recived_data;
-            // Proposer inscription
         }
         
         return $this->set($d);
