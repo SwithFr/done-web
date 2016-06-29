@@ -211,10 +211,13 @@ class Controller
      * Permet d'afficher un élément (~= widget)
      * @param $name le nom de l'élément que l'on souhaite afficher
      */
-    function element($name)
+    function element($name, $vars = null)
     {
         extract($this->vars);
-        include_once BASE . DS . "App" . DS . "Views" . DS . "Elements" . DS . $name . ".php";
+        if ($vars) {
+            extract($vars);
+        }
+        include BASE . DS . "App" . DS . "Views" . DS . "Elements" . DS . $name . ".php";
     }
 
 }
