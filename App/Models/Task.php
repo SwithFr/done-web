@@ -15,8 +15,7 @@ class Task extends RESTModel
         "project_id" => [
             ['ruleName' => 'required', 'message' => 'Il faut associer la tâche à un projet'],
             ['ruleName' => 'isInt', 'message' => 'l‘identifiant du projet doit être un nombre']
-        ],
-        
+        ]
     ];
 
 }
