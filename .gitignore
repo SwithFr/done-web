@@ -3,3 +3,7 @@
 /vendor/
 /App/Webroot/css/
 /App/Webroot/js/
+
+App/Webroot/img/svg-symbols.css
+
+App/Webroot/img/svg-symbols.svg
