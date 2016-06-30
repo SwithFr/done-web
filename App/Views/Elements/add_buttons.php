@@ -1,2 +1,2 @@
-<a class="add-button <?= isset($_SESSION['hasProject']) ? '' : 'disabled' ?>" href="<?= \Core\Helpers\Html::url("decouvrir/2") ?>">Tâche</a>
-<a class="add-button" href="<?= \Core\Helpers\Html::url("decouvrir/1") ?>">Projet</a>
+<a class="add-button <?= isset($_SESSION['hasProject']) ? '' : 'disabled' ?>" href="<?= \Core\Helpers\Html::url("taches/ajout") ?>">Tâche</a>
+<a class="add-button" href="<?= \Core\Helpers\Html::url("projets/ajout") ?>">Projet</a>
