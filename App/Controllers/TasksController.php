@@ -59,4 +59,14 @@ class TasksController extends AppController
         $this->Session->write("usertoken", $fakeUser->recived_data->data->user_token);
         $this->Session->write("userid", $fakeUser->recived_data->data->user_id);
     }
+
+    public function user_add()
+    {
+        
+    }
+
+    public function user_store()
+    {
+        
+    }
 }

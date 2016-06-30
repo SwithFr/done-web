@@ -27,4 +27,14 @@ class ProjectsController extends AppController
         }
         $this->redirect("decouvrir/1");
     }
+
+    public function user_add()
+    {
+
+    }
+
+    public function user_store()
+    {
+
+    }
 }   
