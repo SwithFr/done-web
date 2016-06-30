@@ -59,3 +59,29 @@ Router::get('au-revoir', [
     "controller" => 'users',
     "action" => 'logout'
 ]);
+
+# PROJECTS
+Router::get('projets/ajout', [
+    "controller" => 'projects',
+    "action" => 'add',
+    "prefixe" => 'user'
+]);
+
+Router::post('projets/ajout', [
+    "controller" => 'projects',
+    "action" => 'store',
+    "prefixe" => 'user'
+]);
+
+# TASKS
+Router::get('taches/ajout', [
+    "controller" => 'tasks',
+    "action" => 'add',
+    "prefixe" => 'user'
+]);
+
+Router::post('taches/ajout', [
+    "controller" => 'tasks',
+    "action" => 'store',
+    "prefixe" => 'user'
+]);
