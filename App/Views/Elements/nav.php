@@ -20,8 +20,10 @@
             <li><a title="Redirige vers le formulaire de connexion" href="<?= Html::url('connexion') ?>">Connexion</a></li>
             <li><a title="Redirige vers le formulaire d‘inscription" href="<?= Html::url("inscription") ?>">Inscription</a></li>
         <?php else: ?>
-            <li><a title="Redirige vers la liste des projets et tâches" href="<?= Html::url("tableau-de-bord") ?>">Tableau de bord</a></li>
-            <li><a title="Lien de déconnexion" href="<?= Html::url('au-revoir') ?>">Déconnexion</a></li>
+            <?php if(strpos($_SESSION['username'], 'fake-') === false): ?>
+                <li><a title="Redirige vers la liste des projets et tâches" href="<?= Html::url("tableau-de-bord") ?>">Tableau de bord</a></li>
+                <li><a title="Lien de déconnexion" href="<?= Html::url('au-revoir') ?>">Déconnexion</a></li>
+            <?php endif; ?>
         <?php endif; ?>
         <li><a title="Redirige vers la documentation de l'API pour développeurs" href="#">API</a></li>
     </ul>
