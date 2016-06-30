@@ -1,6 +1,7 @@
 <?php $title_for_layout = "Découvrez Done, le gestionnaire de tâche, en créant votre première tâche."; ?>
 <?php if(!isset($_SESSION['discoverCompleted'])): ?>
-    <?= $this->element("add_buttons") ?>
+    <a class="add-button <?= isset($_SESSION['hasProject']) ? '' : 'disabled' ?>" href="<?= \Core\Helpers\Html::url("decouvrir/2") ?>">Tâche</a>
+    <a class="add-button" href="<?= \Core\Helpers\Html::url("decouvrir/1") ?>">Projet</a>
     <?php if($step == 0): ?>
         <section class="section">
             <h2 class="section__title">Créer une tâche</h2>
