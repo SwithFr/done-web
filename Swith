@@ -12,8 +12,6 @@ $options = '';
 $fileName = '';
 $knowedCmd = ['create', 'h', '-h', 'help', '-help', 'views'];
 
-require('./Core/Cmd/lib.php');
-
 // On vérifie que la commande est valide
 if (!isset($argv[1]) || !in_array($argv[1], $knowedCmd)) {
     die("\n\n∆ Erreur ! Commande inconnue ou mal utilisée \nutilisez php Swith -h pour afficher l'aide\n");
@@ -56,7 +54,8 @@ if ($cmdName == "views") {
         die("∆ Veuillez précisez le nom du controller. \n");
     } else {
         system('clear');
-        $command = 'Core/Cmd/views ' . $argv[2];
+        $viewName =  isset($argv[3]) ? ' ' . $argv[3] : '';
+        $command = 'Core/Cmd/views ' . $argv[2] . $viewName;
         if (substr(php_uname(), 0, 7) == "Windows") {
             $command = 'php ' . $command;
         }
