@@ -63,7 +63,8 @@ class TasksController extends AppController
 
     public function user_add()
     {
-        
+        $d['projects'] = (new Project())->getAll()->recived_data;
+        return $this->set($d);
     }
 
     public function user_store()
