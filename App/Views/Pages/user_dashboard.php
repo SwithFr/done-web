@@ -1,6 +1,4 @@
 <?php use Core\Helpers\Text; ?>
-<?= $this->element("search_task_form") ?>
-<?= $this->element("add_buttons") ?>
 <h1><span class="hidden">Vos tâches pour </span>Aujourd'hui</h1>
 <?php if(!empty($projects)): ?>
     <ul class="projects">
