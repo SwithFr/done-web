@@ -21,6 +21,7 @@ class UsersController extends AppController
                 if (!$user->reqError) {
                     $this->Session->write("usertoken", $user->recived_data->data->user_token);
                     $this->Session->write("userid", $user->recived_data->data->user_id);
+                    $this->Session->write("username", $user->recived_data->data->user_login);
                     $this->Session->setFlash("Vous êtes maintenant connecté.");
                     $this->redirect("tableau-de-bord");
                 } else {
@@ -39,6 +40,7 @@ class UsersController extends AppController
     {
         unset($_SESSION['usertoken']);
         unset($_SESSION['userid']);
+        unset($_SESSION['username']);
 
         $this->Session->setFlash("Vous êtes déconnecté, à bientot !");
         $this->redirect("accueil");
