@@ -15,6 +15,10 @@ class AppController extends Controller
             $this->Session->setFlash("Vous devez être connecté pour effectué cette action !", "error");
             $this->redirect("connexion");
         }
+
+        if (isset($_SESSION['username']) && strpos($_SESSION['username'], 'fake-') === false) {
+            $this->layout = "default-connected";
+        }
     }
 
 }
