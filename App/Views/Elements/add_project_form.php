@@ -1,9 +1,23 @@
 <?php
-    $nameError = isset($_SESSION['project-errors']['name']) ? 'hasError' : '';
-    unset($_SESSION['project-errors']);
+use Core\Helpers\Html;
+use Swith\Form;
+
+$errors = isset($_SESSION['project-errors']) ? $_SESSION['project-errors'] : [];
+unset($_SESSION['project-errors']);
 ?>
-<form class="form" action="<?= \Core\Helpers\Html::url("decouvrir/projets") ?>" method="post">
-    <label class="<?= $nameError ?>" for="name">Nom du projet</label>
-    <input type="text" class="form__input <?= $nameError ?>" name="name" id="name" placeholder="Courses">
-    <input class="button button--smaller form__input form__submit" type="submit" value="Ajouter">
-</form>
+
+<?=
+    Form::start(Html::url("decouvrir/projets"), "POST", [
+        'errors', $errors,
+        "defaultInput" => [
+            'class' => 'form__input'
+        ]
+    ])
+    ->text("name", isset($project->name) ? $project->name : '', [
+        "placeholder" => "Liste des courses",
+        'label' => "Nom du projet :"
+    ])
+    ->end("Ajouter", [
+        'class' => 'button button--smaller form__input form__submit'
+    ])
+?>
