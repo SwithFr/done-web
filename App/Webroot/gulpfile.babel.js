@@ -34,7 +34,8 @@ gulp.task( 'svg', () => {
 
 gulp.task( 'watch', () => {
     browserSync.init( {
-        proxy: "done.dev"
+        proxy: "done.dev",
+        notify: false
     } )
 
     gulp.watch( './src/js/**/*.js', [ 'babel' ] )
