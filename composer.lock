@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "687da4591d7495c7ca7f9f67b93c5af7",
-    "content-hash": "85b74ece790a4b15c396b8943afe9a89",
+    "hash": "8ce4ad9f0bcf759b93588a9eca63595f",
+    "content-hash": "5c9a79424a3e3c2fe8390b15099cc0c4",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -303,13 +303,44 @@
             ],
             "description": "Permet de gerer des erreurs (liees au framewirk swith/framework)",
             "time": "2015-08-14 12:51:16"
+        },
+        {
+            "name": "swith/form",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SwithFr/SwithForm.git",
+                "reference": "65e926c6839cf7ba217909ad547a6516397c772a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SwithFr/SwithForm/zipball/65e926c6839cf7ba217909ad547a6516397c772a",
+                "reference": "65e926c6839cf7ba217909ad547a6516397c772a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Swith\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "SwithFr",
+                    "email": "contact@swith.fr"
+                }
+            ],
+            "description": "A simple form helper",
+            "time": "2016-07-01 11:12:22"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "swith/error": 20
+        "swith/error": 20,
+        "swith/form": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
