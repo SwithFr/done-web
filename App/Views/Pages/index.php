@@ -1,4 +1,5 @@
-<?php use Core\Helpers\Html;
+<?php use App\Helpers\Authenticate;
+use Core\Helpers\Html;
 
 $title_for_layout = "Done - Bienvenue sur la page d'accueil de Done, le gestionnaire de tâche qui vous simplifie la vie."; ?>
 
@@ -13,13 +14,15 @@ $title_for_layout = "Done - Bienvenue sur la page d'accueil de Done, le gestionn
     <p class="section__content">
         Accomplissez vos tâches et débloquez des succès amusants !
     </p>
-    <?php if(isset($_SESSION['username']) && strpos($_SESSION['username'], 'fake-') === 0 || !isset($_SESSION['username'])): ?>
+    <?php if(!Authenticate::isFakeConnected()): ?>
         <a href="<?= Html::url("decouvrir/0") ?>" class="button">Je créé ma première tâche !</a>
     <?php endif; ?>
 
-    <div class="linksToConnect">
-        <a href="<?= Html::url("inscription") ?>">Je m'inscris</a> / <a href="<?= Html::url('connexion') ?>">Je me connecte</a>
-    </div>
+    <?php if(!Authenticate::isConnectd()): ?>
+        <div class="linksToConnect">
+            <a href="<?= Html::url("inscription") ?>">Je m'inscris</a> / <a href="<?= Html::url('connexion') ?>">Je me connecte</a>
+        </div>
+    <?php endif; ?>
 </section>
 <section>
     <h2 class="section__title section__content--smaller"><b>Optimisez</b> votre temps</h2>
