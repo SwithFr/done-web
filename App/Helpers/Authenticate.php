@@ -11,7 +11,7 @@ class Authenticate
         return isset($_SESSION['username']) && strpos($_SESSION['username'], 'fake-') === 0;
     }
 
-    public static function isConnectd()
+    public static function isConnected()
     {
         return isset($_SESSION['username']) && isset($_SESSION['usertoken']);
     }

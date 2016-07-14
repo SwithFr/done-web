@@ -1,4 +1,7 @@
-<?php use Core\Helpers\Html; ?>
+<?php
+use App\Helpers\Authenticate;
+use Core\Helpers\Html;
+?>
 <div role="navigation" class="main-nav">
     <h1 class="main-nav__title">
         <a title="Redirige vers l'accueil du site Done" href="<?= Html::url('accueil') ?>">
@@ -16,11 +19,11 @@
     </a>
     <ul id="open-menu">
         <li><a href="#menu-closed" title="Fermer le menu" class="close-menu">X</a></li>
-        <?php if(!isset($_SESSION['usertoken'])): ?>
+        <?php if(!Authenticate::isConnected() || Authenticate::isFakeConnected()): ?>
             <li><a title="Redirige vers le formulaire de connexion" href="<?= Html::url('connexion') ?>">Connexion</a></li>
             <li><a title="Redirige vers le formulaire d‘inscription" href="<?= Html::url("inscription") ?>">Inscription</a></li>
         <?php else: ?>
-            <?php if(strpos($_SESSION['username'], 'fake-') === false): ?>
+            <?php if(!Authenticate::isFakeConnected()): ?>
                 <li><a title="Redirige vers la liste des projets et tâches" href="<?= Html::url("tableau-de-bord") ?>">Tableau de bord</a></li>
                 <li><a title="Lien de déconnexion" href="<?= Html::url('au-revoir') ?>">Déconnexion</a></li>
             <?php endif; ?>

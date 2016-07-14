@@ -14,11 +14,11 @@ $title_for_layout = "Done - Bienvenue sur la page d'accueil de Done, le gestionn
     <p class="section__content">
         Accomplissez vos tâches et débloquez des succès amusants !
     </p>
-    <?php if(!Authenticate::isFakeConnected()): ?>
+    <?php if(!Authenticate::isFakeConnected() && !Authenticate::isConnected()): ?>
         <a href="<?= Html::url("decouvrir/0") ?>" class="button">Je créé ma première tâche !</a>
     <?php endif; ?>
 
-    <?php if(!Authenticate::isConnectd()): ?>
+    <?php if(!Authenticate::isConnected() || Authenticate::isFakeConnected()): ?>
         <div class="linksToConnect">
             <a href="<?= Html::url("inscription") ?>">Je m'inscris</a> / <a href="<?= Html::url('connexion') ?>">Je me connecte</a>
         </div>
