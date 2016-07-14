@@ -17,9 +17,11 @@ class TasksController extends AppController
     {
         $d['step'] = $step;
         if ($step == 0) {
-            $this->Session->delete("hasProject");
-            $this->Session->delete("task-errors");
-            $this->Session->delete("project-errors");
+            $this->Session->delete([
+                "hasProject",
+                "task-errors",
+                "project-errors",
+            ]);
             $this->_createAndLogFakeUser();
         } elseif ($step == 1) {
         } elseif ($step == 2) {

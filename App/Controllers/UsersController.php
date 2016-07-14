@@ -38,10 +38,12 @@ class UsersController extends AppController
 
     public function logout()
     {
-        $this->Session->delete('usertoken');
-        $this->Session->delete('userid');
-        $this->Session->delete('username');
-        $this->Session->delete('hasProject');
+        $this->Session->delete([
+            'usertoken',
+            'userid',
+            'username',
+            'hasProject',
+        ]);
 
         $this->Session->setFlash("Vous êtes déconnecté, à bientot !");
         $this->redirect("accueil");
