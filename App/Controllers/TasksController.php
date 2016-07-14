@@ -17,18 +17,24 @@ class TasksController extends AppController
     {
         $d['step'] = $step;
         if ($step == 0) {
-            $this->Session->delete([
-                "hasProject",
-                "task-errors",
-                "project-errors",
-            ]);
-            $this->_createAndLogFakeUser();
+            $this->_setp1();
         } elseif ($step == 1) {
         } elseif ($step == 2) {
             $d['projects'] = (new Project())->getAll()->recived_data;
         }
         
         return $this->set($d);
+    }
+
+    // Remove sessions' vars then create and log a fake user
+    private function _setp1()
+    {
+        $this->Session->delete([
+            "hasProject",
+            "task-errors",
+            "project-errors",
+        ]);
+        $this->_createAndLogFakeUser();
     }
 
     public function createFromDiscover()

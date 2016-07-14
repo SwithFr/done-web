@@ -41,7 +41,21 @@ class App
             die('Le fichier de configuration de l‘environnement <code>' . $env . '.env</code> est introuvable !');
         }
 
+        $this->registerAliases();
+
         (new \josegonzalez\Dotenv\Loader('../Config/' . $env . '.env'))->parse()->toEnv();
+    }
+
+    private function registerAliases()
+    {
+        $appAliases = require(BASE . DS . 'App' . DS . 'Config' . DS . 'aliases_config.php');
+        $coreAliases = require(BASE . DS . 'Core' . DS . 'aliases.php');
+
+        $aliases = array_merge($appAliases, $coreAliases);
+
+        foreach ($aliases as $alias => $originalClass) {
+            class_alias($originalClass, $aliases);
+        }
     }
 
     /**
