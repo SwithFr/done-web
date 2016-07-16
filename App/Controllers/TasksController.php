@@ -91,6 +91,7 @@ class TasksController extends AppController
     public function user_add()
     {
         $d['projects'] = (new Project())->getAll()->recived_data;
+        $d['task_form_url'] = 'taches/ajout';
         return $this->set($d);
     }
 
