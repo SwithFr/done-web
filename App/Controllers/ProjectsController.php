@@ -31,11 +31,27 @@ class ProjectsController extends AppController
     public function user_add()
     {
         $d['projects'] = (new Project())->getAll()->recived_data;
+        $d['form_url'] = 'projets/ajout';
+
         return $this->set($d);
     }
 
     public function user_store()
     {
+        $this->needRender = false;
+        $project = new Project();
+        $d = [];
+        if ($project->validate($this->Request->data)) {
+            $d['project'] = $this->Request->data;
+            $project->data = $d['project'];
+            $project->store();
+            $this->Session->setFlash("Le project a bien été ajouté", "success");
+            $this->Session->write("hasProject", true);
+        } else {
+            $d['errors'] = $project->getErrors();
+            $this->Session->setFlash("Le nom du projet n'est pas valide !", 'error');
+        }
 
+        $this->redirect('projets/ajout', false, $d);
     }
 }   

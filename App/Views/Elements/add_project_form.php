@@ -1,11 +1,6 @@
-<?php
-$errors = isset($_SESSION['project-errors']) ? $_SESSION['project-errors'] : [];
-unset($_SESSION['project-errors']);
-?>
-
 <?=
     Form::start(Html::url($form_url), "POST", [
-        'errors' => $errors,
+        'errors' => isset($errors) ? $errors : [],
         "defaultInput" => [
             'class' => 'form__input'
         ]
