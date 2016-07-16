@@ -19,8 +19,19 @@ class TasksController extends AppController
         if ($step == 0) {
             $this->_setp1();
         } elseif ($step == 1) {
+            $d['form_url'] = 'decouvrir/projets';
         } elseif ($step == 2) {
+            $d['task_form_url'] = 'decouvrir/taches';
             $d['projects'] = (new Project())->getAll()->recived_data;
+            if ($this->Session->read('discoverCompleted')) {
+                $this->_cleanFakeUser();
+                $this->Session->delete([
+                    'usertoken',
+                    'userid',
+                    'username',
+                    'hasProject',
+                ]);
+            }
         }
         
         return $this->set($d);
@@ -67,6 +78,14 @@ class TasksController extends AppController
         $this->Session->write("usertoken", $fakeUser->recived_data->data->user_token);
         $this->Session->write("userid", $fakeUser->recived_data->data->user_id);
         $this->Session->write("username", $fakeUser->recived_data->data->user_login);
+    }
+
+    private function _cleanFakeUser()
+    {
+        $user = new User();
+        $user->delete([
+            'route' => $this->Session->read('userid')
+        ]);
     }
 
     public function user_add()

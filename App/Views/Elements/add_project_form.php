@@ -4,7 +4,7 @@ unset($_SESSION['project-errors']);
 ?>
 
 <?=
-    Form::start(Html::url("decouvrir/projets"), "POST", [
+    Form::start(Html::url($form_url), "POST", [
         'errors' => $errors,
         "defaultInput" => [
             'class' => 'form__input'

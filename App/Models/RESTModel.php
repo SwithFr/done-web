@@ -58,6 +58,14 @@ class RESTModel
         return $this;
     }
 
+    public function delete($params = [])
+    {
+        $this->method = "DELETE";
+        $this->_performRequest($params);
+
+        return $this;
+    }
+
     public function execute($params = [])
     {
         $this->_performRequest($params);

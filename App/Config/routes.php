@@ -33,7 +33,7 @@ Router::post('decouvrir/projets', [
     "action" => 'createFromDiscover'
 ]);
 
-Router::post('decouvrir/tasks', [
+Router::post('decouvrir/taches', [
     "controller" => 'tasks',
     "action" => 'createFromDiscover'
 ]);
