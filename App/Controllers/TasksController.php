@@ -97,6 +97,18 @@ class TasksController extends AppController
 
     public function user_store()
     {
-        
+        $task = new Task();
+        if ($task->validate($this->Request->data)) {
+            $d['task'] = $this->Request->data;
+            $task->data = $d['task'];
+            $task->setHeaders()->store();
+            $this->Session->setFlash("La tâche a bien été ajoutée", "success");
+            $this->redirect('tableau-de-bord');
+        } else {
+            $d['errors'] = $task->getErrors();
+            $this->Session->setFlash("Le titre de la tâche n'est pas valide !", 'error');
+            $this->redirect('taches/ajout', false, $d);
+        }
+
     }
 }

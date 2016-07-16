@@ -1,11 +1,6 @@
-<?php
-    $errors = isset($_SESSION['task-errors']) ? $_SESSION['task-errors'] : [];
-    unset($_SESSION['task-errors']);
-?>
-
 <?=
     Form::start(Html::url($task_form_url), "POST", [
-        'errors' => $errors,
+        'errors' => isset($errors) ? $errors : [],
         "defaultInput" => [
             'class' => 'form__input'
         ]
