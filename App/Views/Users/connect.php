@@ -4,27 +4,27 @@
         Conectez-vous et retrouvez toutes vos tâches en attentes.
     </p>
 
-    <?php
-        $loginHasError = isset($errors) && isset($errors['login']) ? ' hasError' : '';
-        $passwordHasError = isset($errors) && isset($errors['password']) ? ' hasError' : '';
+   <?=
+        Form::start(Html::url("connexion"), 'POST', [
+            'errors' => $errors,
+            "defaultInput" => [
+                'class' => 'form__input'
+            ]
+        ])
+        ->text('login', isset($user->login) ? $user->login : '',  [
+            "placeholder" => "Tony",
+            "class" => 'form__input form__input--full',
+            'label' => "Identifiant :"
+        ])
+        ->password('password' , '', [
+            'placeholder' => '*****',
+            "class" => 'form__input form__input--full',
+            'label' => "Mot de passe :"
+        ])
+        ->end("Je me connect", [
+            'class' => 'button form__submit--full'
+        ])
     ?>
-    <?= Form::start("connexion", 'POST', ['class' => 'form']) ?>
-
-    <label for="login" class="<?= $loginHasError ?>">Identifiant <?= isset($errors['login']) ? '(' . $errors['login'] . ')' : '' ?></label>
-    <?= Form::input('text', 'login', false, [
-        'class' => 'form__input form__input--full' . $loginHasError,
-        'placeholder' => 'Tony'
-    ], isset($user->login) ? $user->login : '') ;?>
-
-    <label for="login" class="<?= $passwordHasError ?>">Mot de passe <?= isset($errors['password']) ? '(' . $errors['password'] . ')' : '' ?></label>
-    <?= Form::input('password', 'password', false, [
-        'class' => 'form__input form__input--full' . $loginHasError,
-        'placeholder' => '*****'
-    ]) ;?>
-
-    <?= Form::end("Je me connect", [
-        'class' => 'button form__submit--full'
-    ]) ?>
 
     <div class="linksToConnect">
         <a title="Redirig vers la page d'inscription" href="<?= Html::url("inscription") ?>">Je n'ai pas encore de compte !</a>

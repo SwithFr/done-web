@@ -10,7 +10,7 @@ class UsersController extends AppController
 {
     public function connect()
     {
-        $d = [];
+        $d['errors'] = [];
         if ($this->Request->isPost) {
             $user = new User();
 
@@ -51,7 +51,7 @@ class UsersController extends AppController
 
     public function register()
     {
-        $d = [];
+        $d['errors'] = [];
         if ($this->Request->isPost) {
             $user = new User();
 

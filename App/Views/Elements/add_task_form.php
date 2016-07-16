@@ -5,7 +5,7 @@
 
 <?=
     Form::start(Html::url("decouvrir/tasks"), "POST", [
-        'errors', $errors,
+        'errors' => $errors,
         "defaultInput" => [
             'class' => 'form__input'
         ]
