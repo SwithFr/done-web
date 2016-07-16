@@ -12,7 +12,7 @@ class AppController extends Controller
     {
         $prefixe = $this->Request->prefixe;
         if ($prefixe == "user" && !isset($_SESSION['usertoken'])) {
-            $this->Session->setFlash("Vous devez être connecté pour effectué cette action !", "error");
+            $this->Session->setFlash("Vous devez être connecté pour effectuer cette action !", "error");
             $this->redirect("connexion");
         }
 
