@@ -1,7 +1,4 @@
 <?php
-use Core\Helpers\Html;
-use Swith\Form;
-
 $errors = isset($_SESSION['project-errors']) ? $_SESSION['project-errors'] : [];
 unset($_SESSION['project-errors']);
 ?>

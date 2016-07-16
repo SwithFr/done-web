@@ -5,7 +5,7 @@
  */
 
 return [
-    Core\Helpers\Form::class => 'Form',
+    \Swith\Form::class => 'Form',
     Core\Helpers\Form::class => 'Form',
     Core\Helpers\Date::class => 'Date',
     Core\Helpers\Paginator::class => 'Paginator',

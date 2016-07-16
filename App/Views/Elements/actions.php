@@ -1,4 +1,3 @@
-<?php use Core\Helpers\Html; ?>
 <?php
     if ($type == "tache") {
         $label = "la tâche";

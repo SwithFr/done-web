@@ -1,7 +1,3 @@
-<?php
-use App\Helpers\Authenticate;
-use Core\Helpers\Html;
-?>
 <div role="navigation" class="main-nav">
     <h1 class="main-nav__title">
         <a title="Redirige vers l'accueil du site Done" href="<?= Html::url('accueil') ?>">
