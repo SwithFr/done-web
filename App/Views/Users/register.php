@@ -1,4 +1,3 @@
-<?php use Core\Helpers\Form; ?>
 <section class="section">
     <h2 class="section__title">Inscription</h2>
     <p class="section__content">
@@ -27,6 +26,6 @@
     ]) ?>
 
     <div class="linksToConnect">
-        <a title="Redirig vers la page de connexion" href="<?= \Core\Helpers\Html::url("connexion") ?>">J'ai déjà un compte !</a>
+        <a title="Redirig vers la page de connexion" href="<?= Html::url("connexion") ?>">J'ai déjà un compte !</a>
     </div>
 </section>

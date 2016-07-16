@@ -1,4 +1,3 @@
-<?php use Core\Helpers\Html; ?>
 <!doctype html>
 <html lang="fr">
 <head>

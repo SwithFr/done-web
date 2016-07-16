@@ -1,4 +1,3 @@
-<?php use Core\Helpers\Text; ?>
 <h1><span class="hidden">Vos tâches pour </span>Aujourd'hui</h1>
 <?php if(!empty($projects)): ?>
     <ul class="projects">
