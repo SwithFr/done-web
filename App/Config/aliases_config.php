@@ -6,5 +6,5 @@
  */
 
 return [
-    # 'Namespace\class\originale' => 'alias',
+    \App\Helpers\Authenticate::class => 'Authenticate',
 ];

@@ -1,6 +1,4 @@
-<?php use App\Helpers\Authenticate;
-use Core\Helpers\Html;
-
+<?php
 $title_for_layout = "Done - Bienvenue sur la page d'accueil de Done, le gestionnaire de tâche qui vous simplifie la vie."; ?>
 
 <section class="section">
