@@ -1,6 +1,6 @@
 <?=
     Form::start(Html::url("search") , "POST", [
-        'errors' => [],
+        "manageErrors" => false,
         'class' => 'form',
         "defaultInput" => [
             'class' => 'form__input'
