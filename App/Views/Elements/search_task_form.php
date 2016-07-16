@@ -1,6 +1,10 @@
 <?=
     Form::start(Html::url("search") , "POST", [
-        'errors' => @$errors
+        'errors' => [],
+        'class' => 'form',
+        "defaultInput" => [
+            'class' => 'form__input'
+        ]
     ])
     ->text('query', isset($query) ? $query : '' , [
         "placeholder" => "Trouver des tâches"
