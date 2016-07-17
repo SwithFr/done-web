@@ -1,20 +1,19 @@
 .main-nav
-  @include container
   position: fixed
   top: 0
   left: 1em
   right: 1em
   padding: 1em 0
+  @include container
 
   background-color: $white
-  z-index: 900
+  z-index: 10
 
 .main-nav__title
   position: relative
   padding-left: 2.5%
   margin: 0 0 0 24px
   float: left
-  z-index: 3000
 
   font-size: 1em
   font-weight: 600
@@ -29,7 +28,6 @@
 
 .main-nav__icon
   float: right
-  z-index: 3000
 
 #open-menu
   position: fixed

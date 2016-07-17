@@ -9,12 +9,11 @@
 </head>
 <body>
     <?= $this->element("svgs") ?>
-    <?= $this->Session->flash() ?>
     <?= $this->element("nav") ?>
 
-    <?= $content_for_layout ?>
+    <?= $this->Session->flash() ?>
 
-    <?= Html::js('main') ?>
+    <?= $content_for_layout ?>
 </body>
 </html>
 

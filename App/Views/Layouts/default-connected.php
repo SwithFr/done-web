@@ -7,16 +7,15 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <?= Html::css('main'); ?>
 </head>
-<body>
+<body class="connected">
     <?= $this->element("svgs") ?>
-    <?= $this->Session->flash() ?>
     <?= $this->element("nav") ?>
+
+    <?= $this->Session->flash() ?>
     <?= $this->element("search_task_form") ?>
     <?= $this->element("add_buttons") ?>
 
     <?= $content_for_layout ?>
-
-    <?= Html::js('main') ?>
 </body>
 </html>
 
