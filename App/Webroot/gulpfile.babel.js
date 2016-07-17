@@ -4,6 +4,7 @@ import gulp from 'gulp'
 import babel from 'gulp-babel'
 import watch from 'gulp-watch'
 import sass from 'gulp-sass'
+import autoprefixer from 'gulp-autoprefixer'
 import BS from 'browser-sync'
 import svgSymbols from 'gulp-svg-symbols'
 
@@ -12,6 +13,10 @@ let browserSync = BS.create()
 gulp.task( 'sass', () => {
     return gulp.src( './src/sass/**/*.sass' )
         .pipe( sass().on( 'error', sass.logError ) )
+        .pipe( autoprefixer( {
+            browsers: [ '> 5%' ],
+            cascade: false
+        } ) )
         .pipe( gulp.dest( 'css' ) )
         .pipe( browserSync.stream() )
 } )

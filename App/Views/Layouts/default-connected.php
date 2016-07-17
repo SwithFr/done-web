@@ -9,10 +9,10 @@
 </head>
 <body>
     <?= $this->element("svgs") ?>
+    <?= $this->Session->flash() ?>
     <?= $this->element("nav") ?>
     <?= $this->element("search_task_form") ?>
     <?= $this->element("add_buttons") ?>
-    <?= $this->Session->flash() ?>
 
     <?= $content_for_layout ?>
 

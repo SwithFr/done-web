@@ -37,9 +37,12 @@ class Session
      */
     public function flash()
     {
-        if (isset($_SESSION['flash'])) {
-            echo "<a id='alert' href='#' class='alert alert-" . $_SESSION['flash']['type'] . "'>" . $_SESSION['flash']['message'] . "</a>";
-            unset($_SESSION['flash']);
+        if ($this->read('flash')) {
+            echo "<form class='alert-container'>
+                <input class='animated alert-closer' type='checkbox'>
+                <a id='alert' href='#' class='animated alert alert-" . $_SESSION['flash']['type'] . "'>" . $_SESSION['flash']['message'] . "</a>
+            </form>";
+            $this->delete('flash');
         }
     }
 

@@ -111,7 +111,7 @@ class Html
      */
     public static function fa($faIconName)
     {
-        return "<i class='fa fa-$faIconName'></i>";
+        return "<i class='fa fa-$faIconName' aria-hidden='true'></i>";
     }
 
     /**

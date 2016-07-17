@@ -9,8 +9,8 @@
 </head>
 <body>
     <?= $this->element("svgs") ?>
-    <?= $this->element("nav") ?>
     <?= $this->Session->flash() ?>
+    <?= $this->element("nav") ?>
 
     <?= $content_for_layout ?>
 
