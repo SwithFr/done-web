@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <?= Html::css('main'); ?>
 </head>
-<body class="connected">
+<body>
     <?= $this->element("svgs") ?>
     <?= $this->element("nav") ?>
 

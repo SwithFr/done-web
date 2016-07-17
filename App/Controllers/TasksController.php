@@ -5,6 +5,7 @@ namespace App\Controllers;
 
 
 use App\Models\Project;
+use App\Models\Tag;
 use App\Models\Task;
 use App\Models\User;
 use Core\Helpers\Date;
@@ -91,17 +92,9 @@ class TasksController extends AppController
     public function user_add()
     {
         $d['projects'] = (new Project())->getAll()->recived_data;
-        $t1 = new \stdClass();
-        $t1->id = 1;
-        $t1->name = 'test 1';
-        $t2 = new \stdClass();
-        $t2->id = 2;
-        $t2->name = 'test 2';
-        $d['tags'] = [
-            $t1,
-            $t2
-        ];
+        $d['tags'] = (new Tag())->getAll()->recived_data;
         $d['task_form_url'] = 'taches/ajout';
+
         return $this->set($d);
     }
 

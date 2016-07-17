@@ -15,11 +15,11 @@
         'class' => 'form__input form__input--full',
         'value' => 'name'
     ])
-    ->select("tag_id", $tags, [
+    ->select("tag_id", isset($tags->data) ? $tags->data : [], [
         'label' => 'Associer un tag :',
         'class' => 'form__input form__input--full',
         'value' => 'name',
-        'showIf' => !empty($tags)
+        'showIf' => !empty($tags->data)
     ])
     ->end("Ajouter", ['class' => 'button button--smaller form__input form__submit form__submit--full'])
 ?>
