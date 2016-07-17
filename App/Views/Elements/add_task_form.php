@@ -12,7 +12,14 @@
     ])
     ->select("project_id", $projects->data, [
         'label' => 'Associer au projet :',
+        'class' => 'form__input form__input--full',
         'value' => 'name'
     ])
-    ->end("Ajouter", ['class' => 'button button--smaller form__input form__submit'])
+    ->select("tag_id", $tags, [
+        'label' => 'Associer un tag :',
+        'class' => 'form__input form__input--full',
+        'value' => 'name',
+        'showIf' => !empty($tags)
+    ])
+    ->end("Ajouter", ['class' => 'button button--smaller form__input form__submit form__submit--full'])
 ?>
