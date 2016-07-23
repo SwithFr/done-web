@@ -38,10 +38,13 @@ class PagesController extends AppController
 
     public function user_search()
     {
+        $d = [];
         $task = new Task();
         $task->data = $this->Request->data;
         $retrievedTasks = $task->search();
-        var_dump($retrievedTasks->recived_data);die();
+        $d['tasks'] = $retrievedTasks->recived_data->data;
+        
+        return $this->set($d);
     }
 
 }
