@@ -10,6 +10,11 @@
         "class" => 'form__input form__input--full',
         'label' => "Titre de la tâche :"
     ])
+    ->text("due_to", isset($task->due_to) ? $task->due_to: '', [
+        "placeholder" => "jj/mm/aaaa",
+        "class" => 'form__input form__input--full',
+        'label' => "A terminer avant le :"
+    ])
     ->select("project_id", $projects->data, [
         'label' => 'Associer au projet :',
         'class' => 'form__input form__input--full',
