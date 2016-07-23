@@ -44,6 +44,12 @@ Router::get('tableau-de-bord', [
     "prefixe" => 'user'
 ]);
 
+Router::post('chercher', [
+    "controller" => 'pages',
+    "action" => 'search',
+    "prefixe" => 'user'
+]);
+
 # USERS
 Router::any('connexion', [
     "controller" => 'users',

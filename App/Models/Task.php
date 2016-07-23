@@ -18,4 +18,11 @@ class Task extends RESTModel
         ]
     ];
 
+    public function search()
+    {
+        $this->route = "search";
+        $this->method = "POST";
+        return $this->execute();
+    }
+
 }

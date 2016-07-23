@@ -1,5 +1,5 @@
 <?=
-    Form::start(Html::url("search") , "POST", [
+    Form::start(Html::url("chercher") , "POST", [
         "manageErrors" => false,
         'class' => 'form',
         "defaultInput" => [

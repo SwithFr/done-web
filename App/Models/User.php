@@ -10,7 +10,7 @@ class User extends RESTModel
     {
         $this->route = "login";
         $this->method = "POST";
-        $this->execute();
+        return $this->execute();
     }
 
     public $validationRules = [
