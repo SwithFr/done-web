@@ -85,3 +85,12 @@ Router::post('taches/ajout', [
     "action" => 'store',
     "prefixe" => 'user'
 ]);
+
+Router::get('taches/suppression/{id}', [
+    "controller" => 'tasks',
+    "action" => 'delete',
+    "prefixe" => 'user',
+    "params" => [
+        'id' =>  '/[0-3]+/'
+    ]
+]);

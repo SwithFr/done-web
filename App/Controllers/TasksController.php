@@ -114,4 +114,20 @@ class TasksController extends AppController
         }
 
     }
+
+    public function user_delete($task_id)
+    {
+        $task = new Task();
+        $deletedTask = $task->delete([
+            'route' => $task_id
+        ]);
+        if (!$deletedTask->recived_data->error) {
+            $this->Session->setFlash("La tâche a bien été supprimée");
+            $this->redirect('tableau-de-bord');
+        } else {
+            $d['errors'] = $deletedTask->recived_data->error;
+            $this->Session->setFlash("La tâche n'a pas été supprimée", 'error');
+            $this->redirect('tableau-de-bord', false, $d);
+        }
+    }
 }

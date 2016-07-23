@@ -4,7 +4,7 @@
         <?php foreach($projects as $project): ?>
             <li class="project">
                 <h2 style="color:red;"><?= $project->name ?></h2>
-                <?= $this->element('actions', ['type' => 'projet', 'item' => $project]) ?>
+                <?= $this->element('actions', ['type' => 'projets', 'item' => $project]) ?>
                 <ul class="project__tasks">
                     <?php if(!empty($project->tasks)): ?>
                         <?php foreach($project->tasks as $task): ?>
@@ -15,7 +15,7 @@
                                         <?= Text::cut($task->note, 100) ?>
                                     </p>
                                 <?php endif; ?>
-                                <?= $this->element('actions', ['type' => 'tache', 'item' => $task]) ?>
+                                <?= $this->element('actions', ['type' => 'taches', 'item' => $task]) ?>
                             </li>
                         <?php endforeach; ?>
                     <?php else: ?>

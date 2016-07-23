@@ -1,5 +1,5 @@
 <?php
-    if ($type == "tache") {
+    if ($type == "taches") {
         $label = "la tâche";
     } else {
         $label = "le projet";
