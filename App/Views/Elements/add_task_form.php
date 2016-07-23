@@ -19,6 +19,7 @@
         'label' => 'Associer un tag :',
         'class' => 'form__input form__input--full',
         'value' => 'name',
+        'multiple' => true,
         'showIf' => !empty($tags->data)
     ])
     ->end("Ajouter", ['class' => 'button button--smaller form__input form__submit form__submit--full'])
