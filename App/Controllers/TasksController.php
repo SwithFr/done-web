@@ -5,6 +5,7 @@ namespace App\Controllers;
 
 
 use App\Models\Project;
+use App\Models\State;
 use App\Models\Tag;
 use App\Models\Task;
 use App\Models\User;
@@ -93,6 +94,7 @@ class TasksController extends AppController
     {
         $d['projects'] = (new Project())->getAll()->recived_data;
         $d['tags'] = (new Tag())->getAll()->recived_data;
+        $d['states'] = (new State())->getAll()->recived_data;
         $d['task_form_url'] = 'taches/ajout';
 
         return $this->set($d);

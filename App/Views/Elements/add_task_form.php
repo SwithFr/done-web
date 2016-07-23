@@ -22,5 +22,11 @@
         'multiple' => true,
         'showIf' => !empty($tags->data)
     ])
+    ->select("state_id", isset($states->data) ? $states->data : [], [
+        'label' => 'Associer un état :',
+        'class' => 'form__input form__input--full',
+        'value' => 'name',
+        'showIf' => !empty($states->data)
+    ])
     ->end("Ajouter", ['class' => 'button button--smaller form__input form__submit form__submit--full'])
 ?>
