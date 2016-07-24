@@ -27,4 +27,20 @@ class StatesController extends AppController
         return $this->set($d);
     }
 
+    public function user_delete($state_id)
+    {
+        $state = new Task();
+        $deletedState= $state->delete([
+            'route' => $state_id
+        ]);
+        if (!$deletedState->recived_data->error) {
+            $this->Session->setFlash("Le tag a bien été supprimé");
+            $this->redirect('tableau-de-bord');
+        } else {
+            $d['errors'] = $deletedState->recived_data->error;
+            $this->Session->setFlash("Le tag n'a pas été supprimé", 'error');
+            $this->redirect('tableau-de-bord', false, $d);
+        }
+    }
+
 }

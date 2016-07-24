@@ -27,4 +27,20 @@ class TagsController extends AppController
         return $this->set($d);
     }
 
+    public function user_delete($tag_id)
+    {
+        $tag = new Task();
+        $deletedTag= $tag->delete([
+            'route' => $tag_id
+        ]);
+        if (!$deletedTag->recived_data->error) {
+            $this->Session->setFlash("Le tag a bien été supprimé");
+            $this->redirect('tableau-de-bord');
+        } else {
+            $d['errors'] = $deletedTag->recived_data->error;
+            $this->Session->setFlash("Le tag n'a pas été supprimé", 'error');
+            $this->redirect('tableau-de-bord', false, $d);
+        }
+    }
+
 }
