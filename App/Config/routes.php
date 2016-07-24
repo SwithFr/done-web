@@ -108,9 +108,27 @@ Router::any('etats/ajout', [
     "prefixe" => 'user',
 ]);
 
+Router::get('etats/suppression/{id}', [
+    "controller" => 'states',
+    "action" => 'delete',
+    "prefixe" => 'user',
+    "params" => [
+        'id' =>  '/[0-9]+/'
+    ]
+]);
+
 # TAGS
 Router::any('tags/ajout', [
     "controller" => 'tags',
     "action" => 'add',
     "prefixe" => 'user',
+]);
+
+Router::get('tags/suppression/{id}', [
+    "controller" => 'tags',
+    "action" => 'delete',
+    "prefixe" => 'user',
+    "params" => [
+        'id' =>  '/[0-9]+/'
+    ]
 ]);
