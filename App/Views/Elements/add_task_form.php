@@ -24,7 +24,7 @@
         'class' => 'form__input form__input--full',
         'value' => 'name'
     ])
-    ->select("tag_id", isset($tags->data) ? $tags->data : [], [
+    ->select("tag_id[]", isset($tags->data) ? $tags->data : [], [
         'label' => 'Associer un tag :',
         'class' => 'form__input form__input--full',
         'value' => 'name',
