@@ -4,8 +4,8 @@
     <div class="button-wrapper">
         <a class="add-button" href="#">Options</a>
         <span class="add-button__content">
-            <a class="add-button" href="<?= Html::url("etat/ajout") ?>">État</a>
-            <a class="add-button" href="<?= Html::url("tag/ajout") ?>">Tag</a>
+            <a class="add-button" href="<?= Html::url("etats/ajout") ?>">État</a>
+            <a class="add-button" href="<?= Html::url("tags/ajout") ?>">Tag</a>
         </span>
     </div>
 </div>

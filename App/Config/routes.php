@@ -100,3 +100,10 @@ Router::get('taches/suppression/{id}', [
         'id' =>  '/[0-9]+/'
     ]
 ]);
+
+# STATES
+Router::any('etats/ajout', [
+    "controller" => 'states',
+    "action" => 'add',
+    "prefixe" => 'user',
+]);
