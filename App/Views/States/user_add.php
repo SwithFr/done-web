@@ -4,5 +4,3 @@
     <h2 class="section__title">Ajouter un état</h2>
 </section>
 <?= $this->element('add_state_form') ?>
-
-

@@ -107,3 +107,10 @@ Router::any('etats/ajout', [
     "action" => 'add',
     "prefixe" => 'user',
 ]);
+
+# TAGS
+Router::any('tags/ajout', [
+    "controller" => 'tags',
+    "action" => 'add',
+    "prefixe" => 'user',
+]);

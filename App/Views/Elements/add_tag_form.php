@@ -1,14 +1,14 @@
 <?=
-    Form::start(Html::url('etats/ajout'), "POST", [
+    Form::start(Html::url('tags/ajout'), "POST", [
         'errors' => isset($errors) ? $errors : [],
         "defaultInput" => [
             'class' => 'form__input'
         ]
     ])
-    ->text("name", isset($state->name) ? $state->name: '', [
-        "placeholder" => "Prêt a envoyer",
+    ->text("name", isset($tag->name) ? $tag->name: '', [
+        "placeholder" => "Vraiment urgent",
         "class" => 'form__input form__input--full',
-        'label' => "Nom de l'état :"
+        'label' => "Nom du tag :"
     ])
     ->end("Ajouter", ['class' => 'button button--smaller form__input form__submit form__submit--full'])
 ?>
