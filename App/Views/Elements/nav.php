@@ -22,6 +22,7 @@
             <?php if(!Authenticate::isFakeConnected()): ?>
                 <li><a title="Redirige vers la liste des projets et tâches" href="<?= Html::url("tableau-de-bord") ?>">Tableau de bord</a></li>
                 <li><a title="Lien de déconnexion" href="<?= Html::url('au-revoir') ?>">Déconnexion</a></li>
+                <li><a title="Gerer vos tags et états" href="<?= Html::url('mes-options') ?>">Mes options</a></li>
             <?php endif; ?>
         <?php endif; ?>
         <li><a title="Redirige vers la documentation de l'API pour développeurs" href="#">API</a></li>

@@ -50,6 +50,12 @@ Router::post('chercher', [
     "prefixe" => 'user'
 ]);
 
+Router::get('mes-options', [
+    "controller" => 'pages',
+    "action" => 'data',
+    "prefixe" => 'user'
+]);
+
 # USERS
 Router::any('connexion', [
     "controller" => 'users',

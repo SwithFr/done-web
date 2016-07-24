@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 
 use App\Models\Project;
+use App\Models\State;
+use App\Models\Tag;
 use App\Models\Task;
 
 class PagesController extends AppController
@@ -43,6 +45,14 @@ class PagesController extends AppController
         $task->data = $this->Request->data;
         $retrievedTasks = $task->search();
         $d['tasks'] = $retrievedTasks->recived_data->data;
+        
+        return $this->set($d);
+    }
+
+    public function user_data()
+    {
+        $d['tags'] = (new Tag())->getAll()->recived_data->data;
+        $d['states'] = (new State())->getAll()->recived_data->data;
         
         return $this->set($d);
     }
