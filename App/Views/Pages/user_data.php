@@ -6,6 +6,7 @@
         <?php foreach($tags as $tag): ?>
             <li class="list__item">
                 <?= $tag->name ?>
+                <?= $this->element('actions', ['type' => 'tags', 'item' => $tag, 'done' => false]) ?>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -16,6 +17,7 @@
         <?php foreach($states as $state): ?>
             <li class="list__item">
                 <?= $state->name ?>
+                <?= $this->element('actions', ['type' => 'etats', 'item' => $state, 'done' => false]) ?>
             </li>
         <?php endforeach; ?>
     </ul>
