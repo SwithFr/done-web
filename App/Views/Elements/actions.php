@@ -1,10 +1,4 @@
-<?php
-    if ($type == "taches") {
-        $label = "la tâche";
-    } else {
-        $label = "le projet";
-    }
-?>
+<?php $label = Template::getLabel($type); ?>
 <div class="actions">
     <a href="<?= Html::url("$type/edition/{$item->id}") ?>" title="Editer <?= $label ?>">
         <svg width="15" height="15" role="img" class="edit">

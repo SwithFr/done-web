@@ -7,4 +7,5 @@
 
 return [
     \App\Helpers\Authenticate::class => 'Authenticate',
+    \App\Helpers\Template::class => 'Template',
 ];
