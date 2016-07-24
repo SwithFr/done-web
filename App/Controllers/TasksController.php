@@ -104,8 +104,8 @@ class TasksController extends AppController
     public function user_store()
     {
         $task = new Task();
-        if ($task->validate($this->Request->data)) {
-            $d['task'] = $this->Request->data;
+        $d['task'] = $this->Request->data;
+        if ($task->validate($d['task'])) {
             $task->data = $d['task'];
             $task->formatDate();
             $task->setHeaders()->store();

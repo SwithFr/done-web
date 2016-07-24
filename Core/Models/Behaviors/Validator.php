@@ -301,13 +301,16 @@ trait Validator
     public function isFutur($field, $value, $message = null)
     {
         $isRequired = array_key_exists($field, $this->areRequired);
+
+        if (!$isRequired && empty($value)) {
+            return true;
+        }
+
         $sendDate = Carbon::createFromFormat('d/m/Y', $value);
         $now = Carbon::now();
         $isValid = $sendDate !== false && $sendDate->gt($now);
 
-        if (!$isRequired && empty($value)) {
-            return true;
-        } elseif (
+        if (
             ($isRequired && $isValid) ||
             (!$isRequired && $isValid && !empty($value))
         ) {

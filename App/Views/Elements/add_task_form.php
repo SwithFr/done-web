@@ -15,6 +15,10 @@
         "class" => 'form__input form__input--full',
         'label' => "A terminer avant le :"
     ])
+    ->textarea("note", isset($task->note) ? $task->note: '', [
+        "class" => 'form__input form__input--full',
+        'label' => "Commentaire :"
+    ])
     ->select("project_id", $projects->data, [
         'label' => 'Associer au projet :',
         'class' => 'form__input form__input--full',
