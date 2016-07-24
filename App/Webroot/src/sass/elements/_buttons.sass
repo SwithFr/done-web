@@ -23,6 +23,39 @@
     background-color: $main-blue-color-lighter
     cursor: pointer
 
+.button-wrapper
+  position: relative
+  display: inline-block
+
+  &:hover
+    .add-button__content
+      display: inline-block
+
+  .add-button__content
+    display: none
+    position: absolute
+    padding: .5em 1em
+    top: calc( 100% + 5px )
+    right: 1em
+    left: -100%
+
+    background-color: $white
+    border: 1px solid $main-blue-color
+    border-radius: $border-radius
+
+    &:before
+      content: ''
+      position: absolute
+      width: 0
+      height: 0
+      top: -10px
+      right: 10px
+
+      border-style: solid
+      border-width: 0 5px 10px 5px
+      border-color: transparent transparent $main-blue-color transparent
+
+
 .add-button
   margin-right: 1.2em
 
