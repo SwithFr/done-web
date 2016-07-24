@@ -1,3 +1,4 @@
+<?php $title_for_layout = "Tableau de bord de " . $this->Session->read('username'); ?>
 <h1><span class="hidden">Vos tâches pour </span>Aujourd'hui</h1>
 <?php if(!empty($projects)): ?>
     <ul class="projects">
