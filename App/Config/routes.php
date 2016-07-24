@@ -97,6 +97,6 @@ Router::get('taches/suppression/{id}', [
     "action" => 'delete',
     "prefixe" => 'user',
     "params" => [
-        'id' =>  '/[0-3]+/'
+        'id' =>  '/[0-9]+/'
     ]
 ]);
