@@ -9,6 +9,7 @@ use App\Models\State;
 use App\Models\Tag;
 use App\Models\Task;
 use App\Models\User;
+use Carbon\Carbon;
 use Core\Helpers\Date;
 
 class TasksController extends AppController
@@ -106,6 +107,7 @@ class TasksController extends AppController
         if ($task->validate($this->Request->data)) {
             $d['task'] = $this->Request->data;
             $task->data = $d['task'];
+            $task->formatDate();
             $task->setHeaders()->store();
             $this->Session->setFlash("La tâche a bien été ajoutée", "success");
             $this->redirect('tableau-de-bord');

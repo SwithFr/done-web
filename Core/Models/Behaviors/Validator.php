@@ -2,6 +2,7 @@
 
 namespace Core\Models\Behaviors;
 
+use Carbon\Carbon;
 use Core\Helpers\Date;
 
 trait Validator
@@ -295,6 +296,34 @@ trait Validator
 
         }
 
+    }
+
+    public function isFutur($field, $value, $message = null)
+    {
+        $isRequired = array_key_exists($field, $this->areRequired);
+        $sendDate = Carbon::createFromFormat('d/m/Y', $value);
+        $now = Carbon::now();
+        $isValid = $sendDate !== false && $sendDate->gt($now);
+
+        if (!$isRequired && empty($value)) {
+            return true;
+        } elseif (
+            ($isRequired && $isValid) ||
+            (!$isRequired && $isValid && !empty($value))
+        ) {
+
+            return true;
+
+        } else {
+
+            if ($message == null) {
+                $message = "le champ $field n'est pas une date valide";
+            }
+
+            $this->errors[$field] = $message;
+            return false;
+
+        }
     }
 
     /**

@@ -20,6 +20,7 @@
         "josegonzalez/dotenv": "0.6.0",
         "swith/error": "dev-master",
         "guzzlehttp/guzzle": "^6.2",
-        "swith/form": "dev-master"
+        "swith/form": "dev-master",
+        "nesbot/carbon": "^1.21"
     }
 }
