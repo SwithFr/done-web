@@ -53,4 +53,14 @@ class ProjectsController extends AppController
         }
 
     }
+
+    public function user_delete($project_id)
+    {
+
+    }
+
+    public function user_edit($project_id)
+    {
+
+    }
 }   

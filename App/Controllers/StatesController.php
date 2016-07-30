@@ -43,4 +43,9 @@ class StatesController extends AppController
         }
     }
 
+    public function suer_edit($state_id)
+    {
+
+    }
+
 }

@@ -43,4 +43,9 @@ class TagsController extends AppController
         }
     }
 
+    public function user_edit($tag_id)
+    {
+
+    }
+
 }

@@ -134,4 +134,9 @@ class TasksController extends AppController
             $this->redirect('tableau-de-bord', false, $d);
         }
     }
+
+    public function user_edit($task_id)
+    {
+
+    }
 }
