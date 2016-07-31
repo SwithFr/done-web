@@ -93,9 +93,9 @@ class TasksController extends AppController
 
     public function user_add()
     {
-        $d['projects'] = (new Project())->get()->recived_data;
-        $d['tags'] = (new Tag())->get()->recived_data;
-        $d['states'] = (new State())->get()->recived_data;
+        $d['projects'] = (new Project())->get()->data;
+        $d['tags'] = (new Tag())->get()->data;
+        $d['states'] = (new State())->get()->data;
         $d['task_form_url'] = 'taches/ajout';
 
         return $this->set($d);
@@ -142,9 +142,13 @@ class TasksController extends AppController
             "route" => $task_id
         ])->data;
 
-        $d['projects'] = (new Project())->get()->recived_data;
-        $d['tags'] = (new Tag())->get()->recived_data;
-        $d['states'] = (new State())->get()->recived_data;
+        $d['projects'] = (new Project())->get()->data;
+        $d['tags'] = (new Tag())->get()->data;
+        $d['states'] = (new State())->get()->data;
+        $d['selected_tags'] = [];
+        foreach ($d['tags'] as $tag) {
+            $d['selected_tags'][] = $tag->id;
+        }
 
         if (!$task->isOwner()) {
             $this->Session->setFlash("Vous n'avez pas les droits sur cette tâche", "error");

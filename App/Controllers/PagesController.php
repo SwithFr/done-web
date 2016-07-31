@@ -21,7 +21,6 @@ class PagesController extends AppController
     {
         // Récup projects
         $projectModel = new Project();
-        $taskModel = new Task();
         $d['projects'] = $projectModel->get()->recived_data->data;
         $d['errors'] = [];
 
