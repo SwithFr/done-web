@@ -145,10 +145,7 @@ class TasksController extends AppController
         $d['projects'] = (new Project())->get()->data;
         $d['tags'] = (new Tag())->get()->data;
         $d['states'] = (new State())->get()->data;
-        $d['selected_tags'] = [];
-        foreach ($d['tags'] as $tag) {
-            $d['selected_tags'][] = $tag->id;
-        }
+        $d['selected_tags'] = $this->_getSelectedTags($d['tags'], $d['task']->Tags);
 
         if (!$task->isOwner()) {
             $this->Session->setFlash("Vous n'avez pas les droits sur cette tâche", "error");
@@ -160,6 +157,7 @@ class TasksController extends AppController
             if ($task->validate($this->Request->data)) {
                 $d['task'] = $task->data = $this->Request->data;
                 $d['task']->id = $task->data->id = $task_id;
+                $d['selected_tags'] = $this->_getSelectedTags($d['tags'], $d['task']->tag_id);
                 $task->update();
                 $this->Session->setFlash("La tâche a bien été mis à jour");
             } else {
@@ -169,5 +167,26 @@ class TasksController extends AppController
         }
 
         return $this->set($d);
+    }
+
+
+    private function _getSelectedTags($availableTags, $taskTags)
+    {
+        $tags = [];
+        foreach ($availableTags as $tag) {
+            foreach ($taskTags as $taskTag) {
+                if (is_object($taskTag)) {
+                    if ($taskTag->id == $tag->id) {
+                        $tags[] = $tag->id;
+                    }
+                } else {
+                    if ($taskTag == $tag->id) {
+                        $tags[] = $tag->id;
+                    }
+                }
+            }
+        }
+
+        return $tags;
     }
 }
