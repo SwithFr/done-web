@@ -22,20 +22,23 @@
     ->select("project_id", $projects->data, [
         'label' => 'Associer au projet :',
         'class' => 'form__input form__input--full',
-        'value' => 'name'
+        'value' => 'name',
+        'selected' => isset($task->project_id) ? $task->project_id : 0
     ])
     ->select("tag_id[]", isset($tags->data) ? $tags->data : [], [
         'label' => 'Associer un tag :',
         'class' => 'form__input form__input--full',
         'value' => 'name',
         'multiple' => true,
-        'showIf' => !empty($tags->data)
+        'showIf' => !empty($tags->data),
+        'selected' => isset($task->tag_id) ? $task->tag_id : 0
     ])
     ->select("state_id", isset($states->data) ? $states->data : [], [
         'label' => 'Associer un état :',
         'class' => 'form__input form__input--full',
         'value' => 'name',
-        'showIf' => !empty($states->data)
+        'showIf' => !empty($states->data),
+        'selected' => isset($task->state_id) ? $task->state_id : 0
     ])
     ->end("Ajouter", ['class' => 'button button--smaller form__input form__submit form__submit--full'])
 ?>
