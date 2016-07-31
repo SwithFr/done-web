@@ -41,7 +41,7 @@ class RESTModel
         }
     }
 
-    public function getAll($params = [])
+    public function get($params = [])
     {
         $this->method = "GET";
 
@@ -61,6 +61,17 @@ class RESTModel
     public function delete($params = [])
     {
         $this->method = "DELETE";
+        $this->_performRequest($params);
+
+        return $this;
+    }
+
+    public function update($params = [])
+    {
+        $this->method = "PATCH";
+        if (!isset($params['route'])) {
+            $params['route'] = $this->data->id;
+        }
         $this->_performRequest($params);
 
         return $this;
@@ -86,6 +97,7 @@ class RESTModel
         $status = $this->Response->getStatusCode();
         if ($status === 200) {
             $this->recived_data = $this->_decode();
+            $this->data = $this->recived_data->data;
         } elseif ($status === 404) {
             $this->_parseError($this->_decode()->error);
         } else {
@@ -106,6 +118,11 @@ class RESTModel
         }
 
         return $this;
+    }
+
+    public function isOwner()
+    {
+        return $this->data->user_id === $_SESSION["userid"];
     }
 
     private function _parseData($data)

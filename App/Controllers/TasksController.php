@@ -25,7 +25,7 @@ class TasksController extends AppController
             $d['form_url'] = 'decouvrir/projets';
         } elseif ($step == 2) {
             $d['task_form_url'] = 'decouvrir/taches';
-            $d['projects'] = (new Project())->getAll()->recived_data;
+            $d['projects'] = (new Project())->get()->recived_data;
             if ($this->Session->read('discoverCompleted')) {
                 $this->_cleanFakeUser();
                 $this->Session->delete([
@@ -93,9 +93,9 @@ class TasksController extends AppController
 
     public function user_add()
     {
-        $d['projects'] = (new Project())->getAll()->recived_data;
-        $d['tags'] = (new Tag())->getAll()->recived_data;
-        $d['states'] = (new State())->getAll()->recived_data;
+        $d['projects'] = (new Project())->get()->recived_data;
+        $d['tags'] = (new Tag())->get()->recived_data;
+        $d['states'] = (new State())->get()->recived_data;
         $d['task_form_url'] = 'taches/ajout';
 
         return $this->set($d);

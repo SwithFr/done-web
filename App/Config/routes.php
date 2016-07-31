@@ -85,6 +85,15 @@ Router::post('projets/ajout', [
     "prefixe" => 'user'
 ]);
 
+Router::any('projets/edition/{id}', [
+    "controller" => 'projects',
+    "action" => 'edit',
+    "prefixe" => 'user',
+    "params" => [
+        'id' =>  '/[0-9]+/'
+    ]
+]);
+
 # TASKS
 Router::get('taches/ajout', [
     "controller" => 'tasks',

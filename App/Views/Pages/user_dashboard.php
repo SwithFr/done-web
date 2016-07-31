@@ -10,7 +10,7 @@
                     <?php if(!empty($project->tasks)): ?>
                         <?php foreach($project->tasks as $task): ?>
                             <li class="task">
-                                <h3 style="color:blue;"><?= $task->title ?></h3>
+                                <h3 class="task_title" style="color:blue;"><?= $task->title ?></h3>
                                 <?php if(isset($task->note)): ?>
                                     <p class="task_note">
                                         <?= Text::cut($task->note, 100) ?>

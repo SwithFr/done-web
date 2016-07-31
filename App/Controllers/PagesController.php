@@ -22,13 +22,13 @@ class PagesController extends AppController
         // Récup projects
         $projectModel = new Project();
         $taskModel = new Task();
-        $d['projects'] = $projectModel->getAll()->recived_data->data;
+        $d['projects'] = $projectModel->get()->recived_data->data;
         $d['errors'] = [];
 
         // récup taches
         if ($d['projects']) {
             foreach ($d['projects'] as $project) {
-                $project->tasks = $taskModel->getAll([
+                $project->tasks = $taskModel->get([
                     'route' => $project->id
                 ])->recived_data->data;
             }
@@ -51,8 +51,8 @@ class PagesController extends AppController
 
     public function user_data()
     {
-        $d['tags'] = (new Tag())->getAll()->recived_data->data;
-        $d['states'] = (new State())->getAll()->recived_data->data;
+        $d['tags'] = (new Tag())->get()->recived_data->data;
+        $d['states'] = (new State())->get()->recived_data->data;
         
         return $this->set($d);
     }
