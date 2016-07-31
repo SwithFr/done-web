@@ -116,6 +116,15 @@ Router::get('taches/suppression/{id}', [
     ]
 ]);
 
+Router::any('taches/edition/{id}', [
+    "controller" => 'tasks',
+    "action" => 'edit',
+    "prefixe" => 'user',
+    "params" => [
+        'id' =>  '/[0-9]+/'
+    ]
+]);
+
 # STATES
 Router::any('etats/ajout', [
     "controller" => 'states',

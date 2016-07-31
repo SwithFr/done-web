@@ -137,6 +137,33 @@ class TasksController extends AppController
 
     public function user_edit($task_id)
     {
+        $task = new Task();
+        $d['task'] = $task->get([
+            "route" => $task_id
+        ])->data;
 
+        $d['projects'] = (new Project())->get()->recived_data;
+        $d['tags'] = (new Tag())->get()->recived_data;
+        $d['states'] = (new State())->get()->recived_data;
+
+        if (!$task->isOwner()) {
+            $this->Session->setFlash("Vous n'avez pas les droits sur cette tâche", "error");
+            $d['task'] = new \stdClass();
+            return $this->set($d);
+        }
+
+        if ($this->Request->isPost) {
+            if ($task->validate($this->Request->data)) {
+                $d['task'] = $task->data = $this->Request->data;
+                $d['task']->id = $task->data->id = $task_id;
+                $task->update();
+                $this->Session->setFlash("La tâche a bien été mis à jour");
+            } else {
+                $d['errors'] = $task->getErrors();
+                $this->Session->setFlash("Veuillez verifier vos informations", 'error');
+            }
+        }
+
+        return $this->set($d);
     }
 }

@@ -28,9 +28,9 @@ class PagesController extends AppController
         // récup taches
         if ($d['projects']) {
             foreach ($d['projects'] as $project) {
-                $project->tasks = $taskModel->get([
-                    'route' => $project->id
-                ])->recived_data->data;
+                $project->tasks = $projectModel->get([
+                    'route' => $project->id . '/tasks'
+                ])->data;
             }
             $this->Session->write("hasProject", true);
         }
