@@ -73,14 +73,15 @@ class TasksController extends AppController
 
     private function _createAndLogFakeUser()
     {
-        $fakeUser = new User([
+        $data = [
             "login" => uniqid("fake-"),
             "password" => "fake"
-        ]);
-        $fakeUser->store()->connect();
-        $this->Session->write("usertoken", $fakeUser->recived_data->data->user_token);
-        $this->Session->write("userid", $fakeUser->recived_data->data->user_id);
-        $this->Session->write("username", $fakeUser->recived_data->data->user_login);
+        ];
+        $fakeUser = new User($data);
+        $fakeUser->store()->connect($data);
+        $this->Session->write("usertoken", $fakeUser->data->user_token);
+        $this->Session->write("userid", $fakeUser->data->user_id);
+        $this->Session->write("username", $fakeUser->data->user_login);
     }
 
     private function _cleanFakeUser()

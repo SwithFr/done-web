@@ -6,10 +6,11 @@ namespace App\Models;
 
 class User extends RESTModel
 {
-    public function connect()
+    public function connect($data)
     {
         $this->route = "login";
         $this->method = "POST";
+        $this->data = $data;
         return $this->execute();
     }
 
